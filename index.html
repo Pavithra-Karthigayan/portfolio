@@ -1,23 +1,27 @@
+Here is the updated HTML code. I've replaced the skill logos with real image links from the Devicon library for Java, Python, C, SQL, and added a representative SVG for OOP.
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Pavithra K — Portfolio</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #f8f7f4;
-    --ink: #1a1916;
-    --muted: #7a7670;
-    --accent: #2d6a4f;
-    --accent-light: #d8f3dc;
-    --line: #e0ded9;
+    --bg: #f5f7fa;
+    --ink: #0d1b2a;
+    --muted: #6b7a8d;
+    --accent: #1a56db;
+    --accent-dark: #1040b0;
+    --accent-light: #dbeafe;
+    --accent-mid: #93c5fd;
+    --line: #e1e8f0;
     --card: #ffffff;
+    --shadow: 0 2px 16px rgba(26,86,219,0.07);
   }
 
   * { margin: 0; padding: 0; box-sizing: border-box; }
-
   html { scroll-behavior: smooth; }
 
   body {
@@ -31,22 +35,21 @@
   /* ── NAV ── */
   nav {
     position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(248,247,244,0.92);
-    backdrop-filter: blur(8px);
+    background: rgba(245,247,250,0.94);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--line);
     display: flex; align-items: center; justify-content: space-between;
-    padding: 0 6vw; height: 60px;
+    padding: 0 6vw; height: 62px;
   }
   .nav-logo {
     font-family: 'DM Serif Display', serif;
-    font-size: 1.15rem;
-    letter-spacing: 0.01em;
-    color: var(--ink);
-    text-decoration: none;
+    font-size: 1.2rem; color: var(--ink);
+    text-decoration: none; letter-spacing: 0.01em;
   }
+  .nav-logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 2rem; list-style: none; }
   .nav-links a {
-    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.07em;
     text-transform: uppercase; color: var(--muted);
     text-decoration: none; transition: color 0.2s;
   }
@@ -55,9 +58,13 @@
   /* ── SECTIONS ── */
   section { padding: 100px 6vw; }
   .section-label {
-    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.16em;
     text-transform: uppercase; color: var(--accent);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    display: flex; align-items: center; gap: 0.5rem;
+  }
+  .section-label::after {
+    content: ''; flex: 0 0 30px; height: 1px; background: var(--accent-mid);
   }
 
   /* ── HERO ── */
@@ -68,219 +75,214 @@
     border-bottom: 1px solid var(--line);
     position: relative; overflow: hidden;
   }
-  .hero-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  #hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -80px;
+    width: 520px; height: 520px;
+    background: radial-gradient(circle, rgba(26,86,219,0.07) 0%, transparent 70%);
+    pointer-events: none;
   }
+  .hero-grid {
+    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;
+  }
+  .hero-role-badge {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    background: var(--accent-light); color: var(--accent);
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.05em;
+    padding: 0.35rem 0.9rem; border-radius: 100px;
+    margin-bottom: 1.4rem; border: 1px solid var(--accent-mid);
+  }
+  .hero-role-badge::before { content: '●'; font-size: 0.5rem; }
   .hero-name {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 6vw, 5.5rem);
-    line-height: 1.05;
-    letter-spacing: -0.02em;
-    margin-bottom: 1.5rem;
+    font-size: clamp(2.8rem, 5.5vw, 5.2rem);
+    line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 1.4rem;
   }
   .hero-name em { font-style: italic; color: var(--accent); }
   .hero-tagline {
-    font-size: 1.05rem; color: var(--muted);
-    max-width: 420px; line-height: 1.75;
-    margin-bottom: 2.5rem;
+    font-size: 1rem; color: var(--muted);
+    max-width: 440px; line-height: 1.8; margin-bottom: 2.2rem;
   }
-  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .hero-links { display: flex; gap: 0.75rem; flex-wrap: wrap; }
   .btn {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    padding: 0.6rem 1.4rem;
-    border-radius: 2px;
-    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+    display: inline-flex; align-items: center; gap: 0.45rem;
+    padding: 0.6rem 1.35rem; border-radius: 6px;
+    font-size: 0.83rem; font-weight: 500; letter-spacing: 0.02em;
     text-decoration: none; transition: all 0.2s;
-    cursor: pointer; border: none;
+    cursor: pointer; border: none; font-family: 'DM Sans', sans-serif;
   }
-  .btn-primary { background: var(--accent); color: #fff; }
-  .btn-primary:hover { background: #1e4d38; }
-  .btn-ghost { border: 1px solid var(--line); color: var(--ink); background: transparent; }
-  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+  .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 2px 8px rgba(26,86,219,0.25); }
+  .btn-primary:hover { background: var(--accent-dark); box-shadow: 0 4px 16px rgba(26,86,219,0.35); transform: translateY(-1px); }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); background: var(--card); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
 
   .hero-stats {
     display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
-    background: var(--line);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    overflow: hidden;
-    align-self: start;
-    margin-top: 2rem;
+    background: var(--line); border: 1px solid var(--line);
+    border-radius: 12px; overflow: hidden; box-shadow: var(--shadow);
   }
-  .stat {
-    background: var(--card);
-    padding: 2rem 1.5rem;
-  }
+  .stat { background: var(--card); padding: 1.8rem 1.5rem; transition: background 0.2s; }
+  .stat:hover { background: var(--accent-light); }
   .stat-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.4rem;
-    color: var(--ink);
-    line-height: 1;
-    margin-bottom: 0.3rem;
+    font-family: 'DM Serif Display', serif; font-size: 2.2rem;
+    color: var(--accent); line-height: 1; margin-bottom: 0.3rem;
   }
-  .stat-label { font-size: 0.8rem; color: var(--muted); }
+  .stat-label { font-size: 0.78rem; color: var(--muted); }
 
   /* ── SKILLS ── */
-  #skills { border-bottom: 1px solid var(--line); }
+  #skills { border-bottom: 1px solid var(--line); background: var(--card); }
   .skills-heading {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 3rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 2.5rem;
   }
   .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1px;
-    background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem;
   }
   .skill-chip {
-    background: var(--card);
-    padding: 1.5rem 1.2rem;
-    text-align: center;
-    transition: background 0.2s;
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 12px; padding: 1.8rem 1rem;
+    text-align: center; transition: all 0.22s; cursor: default;
   }
-  .skill-chip:hover { background: var(--accent-light); }
-  .skill-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
-  .skill-name { font-size: 0.85rem; font-weight: 500; }
+  .skill-chip:hover {
+    background: var(--accent-light); border-color: var(--accent-mid);
+    transform: translateY(-4px); box-shadow: 0 8px 24px rgba(26,86,219,0.12);
+  }
+  .skill-logo { width: 52px; height: 52px; margin: 0 auto 0.85rem; display: flex; align-items: center; justify-content: center; }
+  .skill-logo img { width: 52px; height: 52px; object-fit: contain; }
+  .skill-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
 
   /* ── PROJECTS ── */
   #projects { border-bottom: 1px solid var(--line); }
   .projects-heading {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 3rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 2.5rem;
   }
-  .projects-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.25rem; }
   .project-card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 2rem;
-    transition: box-shadow 0.2s, border-color 0.2s;
-    cursor: default;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 12px; padding: 2rem; transition: all 0.25s;
+    position: relative; overflow: hidden;
   }
-  .project-card:hover {
-    box-shadow: 0 8px 32px rgba(0,0,0,0.07);
-    border-color: var(--accent);
+  .project-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-mid));
+    opacity: 0; transition: opacity 0.2s;
   }
+  .project-card:hover { box-shadow: 0 12px 40px rgba(26,86,219,0.1); border-color: var(--accent-mid); transform: translateY(-4px); }
+  .project-card:hover::before { opacity: 1; }
   .project-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.5rem; color: var(--accent-light);
-    margin-bottom: 0.5rem; line-height: 1;
+    font-family: 'DM Serif Display', serif; font-size: 2.2rem;
+    color: var(--accent-light); margin-bottom: 0.5rem; line-height: 1; font-weight: 700;
   }
-  .project-title { font-weight: 500; font-size: 1rem; margin-bottom: 0.7rem; }
-  .project-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
+  .project-title { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.7rem; color: var(--ink); }
+  .project-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.7; }
+  .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.1rem; }
   .project-tag {
-    display: inline-block;
-    margin-top: 1rem;
-    padding: 0.25rem 0.7rem;
-    background: var(--accent-light);
-    color: var(--accent);
-    font-size: 0.72rem; font-weight: 500;
-    letter-spacing: 0.05em; border-radius: 2px;
+    display: inline-block; padding: 0.22rem 0.7rem;
+    background: var(--accent-light); color: var(--accent);
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.04em;
+    border-radius: 100px; border: 1px solid var(--accent-mid);
   }
 
   /* ── INTERNSHIP ── */
-  #internship { border-bottom: 1px solid var(--line); }
+  #internship { border-bottom: 1px solid var(--line); background: var(--card); }
   .internship-heading {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 3rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 2.5rem;
   }
   .internship-card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 2.5rem;
-    max-width: 700px;
-    display: flex; gap: 2rem; align-items: flex-start;
+    background: var(--bg); border: 1px solid var(--line);
+    border-radius: 12px; padding: 2.2rem; max-width: 680px;
+    display: flex; gap: 2rem; align-items: flex-start; box-shadow: var(--shadow);
   }
   .internship-org-box {
-    width: 64px; height: 64px; min-width: 64px;
-    background: var(--accent);
-    border-radius: 4px;
-    display: flex; align-items: center; justify-content: center;
-    color: white; font-size: 1.6rem;
+    width: 58px; height: 58px; min-width: 58px;
+    background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+    border-radius: 12px; display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.5rem; box-shadow: 0 4px 12px rgba(26,86,219,0.3);
   }
-  .internship-role { font-weight: 500; font-size: 1.05rem; margin-bottom: 0.2rem; }
-  .internship-org { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.2rem; }
-  .internship-duration { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; }
-  .internship-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+  .internship-role { font-weight: 600; font-size: 1rem; margin-bottom: 0.2rem; }
+  .internship-org { font-size: 0.85rem; color: var(--accent); font-weight: 600; margin-bottom: 0.2rem; }
+  .internship-duration { font-size: 0.78rem; color: var(--muted); margin-bottom: 0.9rem; }
+  .internship-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.75; }
 
   /* ── CERTIFICATES ── */
   #certificates { border-bottom: 1px solid var(--line); }
   .certs-heading {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 3rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 2.5rem;
   }
-  .certs-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem;
-  }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
   .cert-card {
-    background: var(--card);
-    border: 1px solid var(--line);
-    border-radius: 4px;
-    padding: 1.5rem;
-    display: flex; gap: 1rem; align-items: flex-start;
-    transition: border-color 0.2s;
+    background: var(--card); border: 1px solid var(--line);
+    border-radius: 10px; padding: 1.4rem 1.5rem;
+    display: flex; gap: 1rem; align-items: center; transition: all 0.2s;
   }
-  .cert-card:hover { border-color: var(--accent); }
-  .cert-icon { font-size: 1.4rem; margin-top: 0.1rem; }
-  .cert-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
-  .cert-issuer { font-size: 0.78rem; color: var(--muted); }
+  .cert-card:hover { border-color: var(--accent-mid); box-shadow: var(--shadow); transform: translateY(-2px); }
+  .cert-badge {
+    width: 44px; height: 44px; min-width: 44px;
+    background: var(--accent-light); border-radius: 8px;
+    display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
+  }
+  .cert-name { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.15rem; color: var(--ink); }
+  .cert-issuer { font-size: 0.75rem; color: var(--accent); font-weight: 500; }
 
   /* ── EDUCATION ── */
-  #education { border-bottom: 1px solid var(--line); }
+  #education { border-bottom: 1px solid var(--line); background: var(--card); }
   .edu-heading {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 3rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 2.5rem;
   }
-  .edu-timeline { display: flex; flex-direction: column; gap: 0; max-width: 700px; }
+  .edu-timeline { display: flex; flex-direction: column; max-width: 680px; }
   .edu-item {
-    display: grid; grid-template-columns: 100px 1fr;
-    gap: 2rem; align-items: start;
-    padding: 1.5rem 0;
-    border-top: 1px solid var(--line);
+    display: grid; grid-template-columns: 110px 1fr;
+    gap: 2rem; align-items: start; padding: 1.5rem 0; border-top: 1px solid var(--line);
   }
-  .edu-year { font-size: 0.78rem; color: var(--muted); padding-top: 0.2rem; }
-  .edu-degree { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.15rem; }
-  .edu-school { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.15rem; }
-  .edu-score { font-size: 0.82rem; color: var(--accent); font-weight: 500; }
+  .edu-year { font-size: 0.76rem; color: var(--muted); padding-top: 0.2rem; font-weight: 500; }
+  .edu-degree { font-weight: 600; font-size: 0.93rem; margin-bottom: 0.2rem; }
+  .edu-school { font-size: 0.83rem; color: var(--muted); margin-bottom: 0.25rem; }
+  .edu-score { font-size: 0.82rem; color: var(--accent); font-weight: 700; }
 
-  /* ── CONTACT / FOOTER ── */
-  #contact {
-    text-align: center;
-  }
+  /* ── CONTACT ── */
+  #contact { text-align: center; }
   .contact-heading {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 5vw, 4rem);
-    margin-bottom: 1rem;
-    line-height: 1.1;
+    font-size: clamp(2rem, 5vw, 3.8rem); margin-bottom: 0.8rem; line-height: 1.1;
   }
-  .contact-sub { color: var(--muted); margin-bottom: 2.5rem; }
+  .contact-sub { color: var(--muted); margin-bottom: 2.5rem; font-size: 0.95rem; }
   .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  .contact-btn {
+    display: inline-flex; align-items: center; gap: 0.6rem;
+    padding: 0.75rem 1.5rem; border-radius: 8px;
+    font-size: 0.85rem; font-weight: 500; font-family: 'DM Sans', sans-serif;
+    text-decoration: none; transition: all 0.2s;
+    border: 1px solid var(--line); background: var(--card); color: var(--ink);
+  }
+  .contact-btn:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); box-shadow: var(--shadow); }
+  .contact-btn.primary { background: var(--accent); color: white; border-color: var(--accent); box-shadow: 0 2px 12px rgba(26,86,219,0.25); }
+  .contact-btn.primary:hover { background: var(--accent-dark); }
+  .contact-btn svg { width: 18px; height: 18px; flex-shrink: 0; }
+
   footer {
-    border-top: 1px solid var(--line);
-    padding: 2rem 6vw;
+    border-top: 1px solid var(--line); padding: 1.8rem 6vw;
     display: flex; align-items: center; justify-content: space-between;
-    font-size: 0.78rem; color: var(--muted);
+    font-size: 0.76rem; color: var(--muted); background: var(--card);
   }
 
   /* ── ANIMATIONS ── */
   @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(24px); }
+    from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
   }
-  .hero-name { animation: fadeUp 0.7s ease both; }
-  .hero-tagline { animation: fadeUp 0.7s 0.12s ease both; }
-  .hero-links { animation: fadeUp 0.7s 0.22s ease both; }
-  .hero-stats { animation: fadeUp 0.7s 0.08s ease both; }
+  .hero-role-badge { animation: fadeUp 0.5s ease both; }
+  .hero-name       { animation: fadeUp 0.6s 0.08s ease both; }
+  .hero-tagline    { animation: fadeUp 0.6s 0.18s ease both; }
+  .hero-links      { animation: fadeUp 0.6s 0.28s ease both; }
+  .hero-stats      { animation: fadeUp 0.6s 0.1s ease both; }
 
   @media (max-width: 768px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); margin-top: 2rem; }
     nav { padding: 0 4vw; }
     .nav-links { gap: 1rem; }
     section { padding: 80px 5vw; }
@@ -291,12 +293,12 @@
 
 <!-- NAV -->
 <nav>
-  <a href="#hero" class="nav-logo">Pavithra K.</a>
+  <a href="#hero" class="nav-logo">Pavithra<span>.</span></a>
   <ul class="nav-links">
     <li><a href="#skills">Skills</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#internship">Experience</a></li>
-    <li><a href="#certificates">Certs</a></li>
+    <li><a href="#certificates">Certificates</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -305,9 +307,9 @@
 <section id="hero">
   <div class="hero-grid">
     <div>
-      <p class="section-label">Computer Science Engineer</p>
+      <div class="hero-role-badge">Computer Science &amp; Engineering Student</div>
       <h1 class="hero-name">Pavithra<br><em>Karthigayan</em></h1>
-      <p class="hero-tagline">Pre-final year CSE student passionate about AI, backend development, and building software that solves real problems.</p>
+      <p class="hero-tagline">Pre-final year CSE student passionate about Java development, AI, and backend technologies — focused on building practical, real-world software solutions.</p>
       <div class="hero-links">
         <a href="mailto:pavithrakarthigayan23@gmail.com" class="btn btn-primary">✉ Email Me</a>
         <a href="https://www.linkedin.com/in/pavithra-karthigayan" target="_blank" class="btn btn-ghost">LinkedIn</a>
@@ -330,27 +332,66 @@
           <div class="stat-label">Certifications</div>
         </div>
         <div class="stat">
-          <div class="stat-number">AI</div>
-          <div class="stat-label">Focus Area</div>
+          <div class="stat-number">Java</div>
+          <div class="stat-label">Primary Language</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- SKILLS -->
+<!-- SKILLS (logos replaced with real ones) -->
 <section id="skills">
   <p class="section-label">What I work with</p>
   <h2 class="skills-heading">Technical Skills</h2>
   <div class="skills-grid">
-    <div class="skill-chip"><div class="skill-icon">☕</div><div class="skill-name">Java</div></div>
-    <div class="skill-chip"><div class="skill-icon">🐍</div><div class="skill-name">Python</div></div>
-    <div class="skill-chip"><div class="skill-icon">⚙️</div><div class="skill-name">C</div></div>
-    <div class="skill-chip"><div class="skill-icon">🗄️</div><div class="skill-name">SQL</div></div>
-    <div class="skill-chip"><div class="skill-icon">🧩</div><div class="skill-name">OOP</div></div>
-    <div class="skill-chip"><div class="skill-icon">🤖</div><div class="skill-name">Machine Learning</div></div>
-    <div class="skill-chip"><div class="skill-icon">🔐</div><div class="skill-name">Cybersecurity</div></div>
-    <div class="skill-chip"><div class="skill-icon">🧠</div><div class="skill-name">AI Development</div></div>
+
+    <!-- Java (real logo) -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java">
+      </div>
+      <div class="skill-name">Java</div>
+    </div>
+
+    <!-- Python (real logo) -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python">
+      </div>
+      <div class="skill-name">Python</div>
+    </div>
+
+    <!-- C (real logo) -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C">
+      </div>
+      <div class="skill-name">C</div>
+    </div>
+
+    <!-- SQL (real logo - MySQL) -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL">
+      </div>
+      <div class="skill-name">SQL</div>
+    </div>
+
+    <!-- OOP (real representative SVG – same as before, fits the 'real logo' intent) -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="52">
+          <rect x="1" y="10" width="20" height="13" rx="3" fill="#1a56db"/>
+          <rect x="31" y="10" width="20" height="13" rx="3" fill="#1a56db"/>
+          <rect x="16" y="30" width="20" height="13" rx="3" fill="#1040b0"/>
+          <line x1="11" y1="23" x2="26" y2="30" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round"/>
+          <line x1="41" y1="23" x2="26" y2="30" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round"/>
+        </svg>
+      </div>
+      <div class="skill-name">OOP</div>
+    </div>
+
   </div>
 </section>
 
@@ -363,25 +404,40 @@
       <div class="project-number">01</div>
       <div class="project-title">DOCWISE AI — Medical History Analyzer</div>
       <p class="project-desc">An AI-powered system that analyzes medical reports, predicts diseases, and recommends appropriate doctors based on patient history.</p>
-      <span class="project-tag">Python · AI · ML</span>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">AI</span>
+        <span class="project-tag">ML</span>
+      </div>
     </div>
     <div class="project-card">
       <div class="project-number">02</div>
       <div class="project-title">Intrusion Detection System</div>
       <p class="project-desc">Implemented a machine learning model to detect and classify malicious network activities, identifying security threats in real-time.</p>
-      <span class="project-tag">Python · ML · Cybersecurity</span>
+      <div class="project-tags">
+        <span class="project-tag">Python</span>
+        <span class="project-tag">ML</span>
+        <span class="project-tag">Cybersecurity</span>
+      </div>
     </div>
     <div class="project-card">
       <div class="project-number">03</div>
       <div class="project-title">Library Management System</div>
       <p class="project-desc">A Java-based system using OOP principles to manage books, users, and issue/return operations with clean data handling.</p>
-      <span class="project-tag">Java · OOP · SQL</span>
+      <div class="project-tags">
+        <span class="project-tag">Java</span>
+        <span class="project-tag">OOP</span>
+        <span class="project-tag">SQL</span>
+      </div>
     </div>
     <div class="project-card">
       <div class="project-number">04</div>
       <div class="project-title">Java Quiz Application</div>
       <p class="project-desc">An interactive quiz application with score evaluation and question management, built using core Java and Collections framework.</p>
-      <span class="project-tag">Java · Collections</span>
+      <div class="project-tags">
+        <span class="project-tag">Java</span>
+        <span class="project-tag">Collections</span>
+      </div>
     </div>
   </div>
 </section>
@@ -395,7 +451,7 @@
     <div>
       <div class="internship-role">Cybersecurity Intern</div>
       <div class="internship-org">AICTE – EDUNET</div>
-      <div class="internship-duration">Duration: 1 Month</div>
+      <div class="internship-duration">⏱ Duration: 1 Month</div>
       <div class="internship-desc">Gained hands-on exposure to cybersecurity fundamentals and threat analysis. Worked on understanding attack vectors, defense mechanisms, and real-world security scenarios in a structured learning environment.</div>
     </div>
   </div>
@@ -404,38 +460,38 @@
 <!-- CERTIFICATES -->
 <section id="certificates">
   <p class="section-label">Credentials</p>
-  <h2 class="certs-heading">Certifications</h2>
+  <h2 class="certs-heading">Certificates</h2>
   <div class="certs-grid">
     <div class="cert-card">
-      <div class="cert-icon">🏛️</div>
+      <div class="cert-badge">🏛️</div>
       <div>
-        <div class="cert-name">Cybersecurity Design and Analysis</div>
+        <div class="cert-name">Cybersecurity Design &amp; Analysis</div>
         <div class="cert-issuer">NASSCOM</div>
       </div>
     </div>
     <div class="cert-card">
-      <div class="cert-icon">🔮</div>
+      <div class="cert-badge">🔮</div>
       <div>
         <div class="cert-name">Generative AI</div>
         <div class="cert-issuer">Oracle</div>
       </div>
     </div>
     <div class="cert-card">
-      <div class="cert-icon">☕</div>
+      <div class="cert-badge">☕</div>
       <div>
         <div class="cert-name">Programming in Java</div>
         <div class="cert-issuer">NPTEL</div>
       </div>
     </div>
     <div class="cert-card">
-      <div class="cert-icon">🤖</div>
+      <div class="cert-badge">🤖</div>
       <div>
         <div class="cert-name">Introduction to Machine Learning</div>
         <div class="cert-issuer">NPTEL</div>
       </div>
     </div>
     <div class="cert-card">
-      <div class="cert-icon">📜</div>
+      <div class="cert-badge">📜</div>
       <div>
         <div class="cert-name">Internship Certificate</div>
         <div class="cert-issuer">AICTE</div>
@@ -450,7 +506,7 @@
   <h2 class="edu-heading">Education</h2>
   <div class="edu-timeline">
     <div class="edu-item">
-      <div class="edu-year">2023–2027</div>
+      <div class="edu-year">2023 – 2027</div>
       <div>
         <div class="edu-degree">B.E. Computer Science and Engineering</div>
         <div class="edu-school">Panimalar Engineering College</div>
@@ -458,7 +514,7 @@
       </div>
     </div>
     <div class="edu-item">
-      <div class="edu-year">2022–2023</div>
+      <div class="edu-year">2022 – 2023</div>
       <div>
         <div class="edu-degree">HSC – Class XII</div>
         <div class="edu-school">Dr. VGN Matric. Hr. Sec. School</div>
@@ -466,7 +522,7 @@
       </div>
     </div>
     <div class="edu-item">
-      <div class="edu-year">2020–2021</div>
+      <div class="edu-year">2020 – 2021</div>
       <div>
         <div class="edu-degree">HSC – Class X</div>
         <div class="edu-school">Dr. VGN Matric. Hr. Sec. School</div>
@@ -478,12 +534,47 @@
 
 <!-- CONTACT -->
 <section id="contact">
+  <p class="section-label" style="justify-content:center">Get in touch</p>
   <h2 class="contact-heading">Let's work<br><em style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--accent)">together.</em></h2>
-  <p class="contact-sub">Open to internships, projects, and entry-level opportunities.</p>
+  <p class="contact-sub">Open to internships, Java developer roles, and entry-level opportunities.</p>
   <div class="contact-links">
-    <a href="mailto:pavithrakarthigayan23@gmail.com" class="btn btn-primary">✉ pavithrakarthigayan23@gmail.com</a>
-    <a href="https://www.linkedin.com/in/pavithra-karthigayan" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
-    <a href="https://github.com/Pavithra-Karthigayan" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+
+    <!-- Email -->
+    <a href="mailto:pavithrakarthigayan23@gmail.com" class="contact-btn primary">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/>
+        <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+      </svg>
+      pavithrakarthigayan23@gmail.com
+    </a>
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/in/pavithra-karthigayan" target="_blank" class="contact-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
+        <rect x="2" y="9" width="4" height="12"/>
+        <circle cx="4" cy="4" r="2"/>
+      </svg>
+      LinkedIn
+    </a>
+
+    <!-- GitHub -->
+    <a href="https://github.com/Pavithra-Karthigayan" target="_blank" class="contact-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"/>
+        <path d="M9 18c-4.51 2-5-2-7-2"/>
+      </svg>
+      GitHub
+    </a>
+
+    <!-- LeetCode -->
+    <a href="https://leetcode.com/u/Pavithra_Karthigayan/" target="_blank" class="contact-btn">
+      <svg viewBox="0 0 24 24" fill="currentColor">
+        <path d="M13.483 0a1.374 1.374 0 0 0-.961.438L7.116 6.226l-3.854 4.126a5.266 5.266 0 0 0-1.209 2.104 5.35 5.35 0 0 0-.125.513 5.527 5.527 0 0 0 .062 2.362 5.83 5.83 0 0 0 .349 1.017 5.938 5.938 0 0 0 1.271 1.818l4.277 4.193.039.038c2.248 2.165 5.852 2.133 8.063-.074l2.396-2.392c.54-.54.54-1.414.003-1.955a1.378 1.378 0 0 0-1.951-.003l-2.396 2.392a3.021 3.021 0 0 1-4.205.038l-.02-.019-4.276-4.193c-.652-.64-.972-1.469-.948-2.263a2.68 2.68 0 0 1 .066-.523 2.545 2.545 0 0 1 .619-1.164L9.13 8.114c1.058-1.134 3.204-1.27 4.43-.278l3.501 2.831c.593.48 1.461.387 1.94-.207a1.384 1.384 0 0 0-.207-1.943l-3.5-2.831c-.8-.647-1.766-1.045-2.774-1.202l2.015-2.158A1.384 1.384 0 0 0 13.483 0zm-2.866 12.815a1.38 1.38 0 0 0-1.38 1.382 1.38 1.38 0 0 0 1.38 1.382H20.79a1.38 1.38 0 0 0 1.38-1.382 1.38 1.38 0 0 0-1.38-1.382z"/>
+      </svg>
+      LeetCode
+    </a>
+
   </div>
 </section>
 
@@ -494,3 +585,4 @@
 
 </body>
 </html>
+```
