@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pavithra K — Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f8f7f4;
+    --ink: #1a1916;
+    --muted: #7a7670;
+    --accent: #2d6a4f;
+    --accent-light: #d8f3dc;
+    --line: #e0ded9;
+    --card: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(248,247,244,0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 6vw; height: 60px;
+  }
+  .nav-logo {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.01em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.06em;
+    text-transform: uppercase; color: var(--muted);
+    text-decoration: none; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--accent); }
+
+  /* ── SECTIONS ── */
+  section { padding: 100px 6vw; }
+  .section-label {
+    font-size: 0.72rem; font-weight: 500; letter-spacing: 0.14em;
+    text-transform: uppercase; color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column; justify-content: center;
+    padding-top: 120px;
+    border-bottom: 1px solid var(--line);
+    position: relative; overflow: hidden;
+  }
+  .hero-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 6vw, 5.5rem);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+  }
+  .hero-name em { font-style: italic; color: var(--accent); }
+  .hero-tagline {
+    font-size: 1.05rem; color: var(--muted);
+    max-width: 420px; line-height: 1.75;
+    margin-bottom: 2.5rem;
+  }
+  .hero-links { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.6rem 1.4rem;
+    border-radius: 2px;
+    font-size: 0.82rem; font-weight: 500; letter-spacing: 0.04em;
+    text-decoration: none; transition: all 0.2s;
+    cursor: pointer; border: none;
+  }
+  .btn-primary { background: var(--accent); color: #fff; }
+  .btn-primary:hover { background: #1e4d38; }
+  .btn-ghost { border: 1px solid var(--line); color: var(--ink); background: transparent; }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  .hero-stats {
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    overflow: hidden;
+    align-self: start;
+    margin-top: 2rem;
+  }
+  .stat {
+    background: var(--card);
+    padding: 2rem 1.5rem;
+  }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.4rem;
+    color: var(--ink);
+    line-height: 1;
+    margin-bottom: 0.3rem;
+  }
+  .stat-label { font-size: 0.8rem; color: var(--muted); }
+
+  /* ── SKILLS ── */
+  #skills { border-bottom: 1px solid var(--line); }
+  .skills-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+  }
+  .skills-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); border-radius: 4px; overflow: hidden;
+  }
+  .skill-chip {
+    background: var(--card);
+    padding: 1.5rem 1.2rem;
+    text-align: center;
+    transition: background 0.2s;
+  }
+  .skill-chip:hover { background: var(--accent-light); }
+  .skill-icon { font-size: 1.8rem; margin-bottom: 0.5rem; }
+  .skill-name { font-size: 0.85rem; font-weight: 500; }
+
+  /* ── PROJECTS ── */
+  #projects { border-bottom: 1px solid var(--line); }
+  .projects-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+  }
+  .projects-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem;
+  }
+  .project-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2rem;
+    transition: box-shadow 0.2s, border-color 0.2s;
+    cursor: default;
+  }
+  .project-card:hover {
+    box-shadow: 0 8px 32px rgba(0,0,0,0.07);
+    border-color: var(--accent);
+  }
+  .project-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.5rem; color: var(--accent-light);
+    margin-bottom: 0.5rem; line-height: 1;
+  }
+  .project-title { font-weight: 500; font-size: 1rem; margin-bottom: 0.7rem; }
+  .project-desc { font-size: 0.87rem; color: var(--muted); line-height: 1.65; }
+  .project-tag {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: 0.25rem 0.7rem;
+    background: var(--accent-light);
+    color: var(--accent);
+    font-size: 0.72rem; font-weight: 500;
+    letter-spacing: 0.05em; border-radius: 2px;
+  }
+
+  /* ── INTERNSHIP ── */
+  #internship { border-bottom: 1px solid var(--line); }
+  .internship-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+  }
+  .internship-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2.5rem;
+    max-width: 700px;
+    display: flex; gap: 2rem; align-items: flex-start;
+  }
+  .internship-org-box {
+    width: 64px; height: 64px; min-width: 64px;
+    background: var(--accent);
+    border-radius: 4px;
+    display: flex; align-items: center; justify-content: center;
+    color: white; font-size: 1.6rem;
+  }
+  .internship-role { font-weight: 500; font-size: 1.05rem; margin-bottom: 0.2rem; }
+  .internship-org { font-size: 0.85rem; color: var(--accent); font-weight: 500; margin-bottom: 0.2rem; }
+  .internship-duration { font-size: 0.8rem; color: var(--muted); margin-bottom: 0.8rem; }
+  .internship-desc { font-size: 0.9rem; color: var(--muted); line-height: 1.7; }
+
+  /* ── CERTIFICATES ── */
+  #certificates { border-bottom: 1px solid var(--line); }
+  .certs-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+  }
+  .certs-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem;
+  }
+  .cert-card {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.5rem;
+    display: flex; gap: 1rem; align-items: flex-start;
+    transition: border-color 0.2s;
+  }
+  .cert-card:hover { border-color: var(--accent); }
+  .cert-icon { font-size: 1.4rem; margin-top: 0.1rem; }
+  .cert-name { font-size: 0.9rem; font-weight: 500; margin-bottom: 0.2rem; }
+  .cert-issuer { font-size: 0.78rem; color: var(--muted); }
+
+  /* ── EDUCATION ── */
+  #education { border-bottom: 1px solid var(--line); }
+  .edu-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 3rem;
+  }
+  .edu-timeline { display: flex; flex-direction: column; gap: 0; max-width: 700px; }
+  .edu-item {
+    display: grid; grid-template-columns: 100px 1fr;
+    gap: 2rem; align-items: start;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--line);
+  }
+  .edu-year { font-size: 0.78rem; color: var(--muted); padding-top: 0.2rem; }
+  .edu-degree { font-weight: 500; font-size: 0.95rem; margin-bottom: 0.15rem; }
+  .edu-school { font-size: 0.85rem; color: var(--muted); margin-bottom: 0.15rem; }
+  .edu-score { font-size: 0.82rem; color: var(--accent); font-weight: 500; }
+
+  /* ── CONTACT / FOOTER ── */
+  #contact {
+    text-align: center;
+  }
+  .contact-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 5vw, 4rem);
+    margin-bottom: 1rem;
+    line-height: 1.1;
+  }
+  .contact-sub { color: var(--muted); margin-bottom: 2.5rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; }
+  footer {
+    border-top: 1px solid var(--line);
+    padding: 2rem 6vw;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 0.78rem; color: var(--muted);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-name { animation: fadeUp 0.7s ease both; }
+  .hero-tagline { animation: fadeUp 0.7s 0.12s ease both; }
+  .hero-links { animation: fadeUp 0.7s 0.22s ease both; }
+  .hero-stats { animation: fadeUp 0.7s 0.08s ease both; }
+
+  @media (max-width: 768px) {
+    .hero-grid { grid-template-columns: 1fr; }
+    .hero-stats { grid-template-columns: repeat(2, 1fr); }
+    nav { padding: 0 4vw; }
+    .nav-links { gap: 1rem; }
+    section { padding: 80px 5vw; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Pavithra K.</a>
+  <ul class="nav-links">
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#internship">Experience</a></li>
+    <li><a href="#certificates">Certs</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-grid">
+    <div>
+      <p class="section-label">Computer Science Engineer</p>
+      <h1 class="hero-name">Pavithra<br><em>Karthigayan</em></h1>
+      <p class="hero-tagline">Pre-final year CSE student passionate about AI, backend development, and building software that solves real problems.</p>
+      <div class="hero-links">
+        <a href="mailto:pavithrakarthigayan23@gmail.com" class="btn btn-primary">✉ Email Me</a>
+        <a href="https://www.linkedin.com/in/pavithra-karthigayan" target="_blank" class="btn btn-ghost">LinkedIn</a>
+        <a href="https://github.com/Pavithra-Karthigayan" target="_blank" class="btn btn-ghost">GitHub</a>
+        <a href="https://leetcode.com/u/Pavithra_Karthigayan/" target="_blank" class="btn btn-ghost">LeetCode</a>
+      </div>
+    </div>
+    <div>
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">9.23</div>
+          <div class="stat-label">CGPA (B.E. CSE)</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">4</div>
+          <div class="stat-label">Projects Built</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Certifications</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">AI</div>
+          <div class="stat-label">Focus Area</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <p class="section-label">What I work with</p>
+  <h2 class="skills-heading">Technical Skills</h2>
+  <div class="skills-grid">
+    <div class="skill-chip"><div class="skill-icon">☕</div><div class="skill-name">Java</div></div>
+    <div class="skill-chip"><div class="skill-icon">🐍</div><div class="skill-name">Python</div></div>
+    <div class="skill-chip"><div class="skill-icon">⚙️</div><div class="skill-name">C</div></div>
+    <div class="skill-chip"><div class="skill-icon">🗄️</div><div class="skill-name">SQL</div></div>
+    <div class="skill-chip"><div class="skill-icon">🧩</div><div class="skill-name">OOP</div></div>
+    <div class="skill-chip"><div class="skill-icon">🤖</div><div class="skill-name">Machine Learning</div></div>
+    <div class="skill-chip"><div class="skill-icon">🔐</div><div class="skill-name">Cybersecurity</div></div>
+    <div class="skill-chip"><div class="skill-icon">🧠</div><div class="skill-name">AI Development</div></div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <p class="section-label">Things I've built</p>
+  <h2 class="projects-heading">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <div class="project-number">01</div>
+      <div class="project-title">DOCWISE AI — Medical History Analyzer</div>
+      <p class="project-desc">An AI-powered system that analyzes medical reports, predicts diseases, and recommends appropriate doctors based on patient history.</p>
+      <span class="project-tag">Python · AI · ML</span>
+    </div>
+    <div class="project-card">
+      <div class="project-number">02</div>
+      <div class="project-title">Intrusion Detection System</div>
+      <p class="project-desc">Implemented a machine learning model to detect and classify malicious network activities, identifying security threats in real-time.</p>
+      <span class="project-tag">Python · ML · Cybersecurity</span>
+    </div>
+    <div class="project-card">
+      <div class="project-number">03</div>
+      <div class="project-title">Library Management System</div>
+      <p class="project-desc">A Java-based system using OOP principles to manage books, users, and issue/return operations with clean data handling.</p>
+      <span class="project-tag">Java · OOP · SQL</span>
+    </div>
+    <div class="project-card">
+      <div class="project-number">04</div>
+      <div class="project-title">Java Quiz Application</div>
+      <p class="project-desc">An interactive quiz application with score evaluation and question management, built using core Java and Collections framework.</p>
+      <span class="project-tag">Java · Collections</span>
+    </div>
+  </div>
+</section>
+
+<!-- INTERNSHIP -->
+<section id="internship">
+  <p class="section-label">Work experience</p>
+  <h2 class="internship-heading">Internship</h2>
+  <div class="internship-card">
+    <div class="internship-org-box">🛡️</div>
+    <div>
+      <div class="internship-role">Cybersecurity Intern</div>
+      <div class="internship-org">AICTE – EDUNET</div>
+      <div class="internship-duration">Duration: 1 Month</div>
+      <div class="internship-desc">Gained hands-on exposure to cybersecurity fundamentals and threat analysis. Worked on understanding attack vectors, defense mechanisms, and real-world security scenarios in a structured learning environment.</div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates">
+  <p class="section-label">Credentials</p>
+  <h2 class="certs-heading">Certifications</h2>
+  <div class="certs-grid">
+    <div class="cert-card">
+      <div class="cert-icon">🏛️</div>
+      <div>
+        <div class="cert-name">Cybersecurity Design and Analysis</div>
+        <div class="cert-issuer">NASSCOM</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🔮</div>
+      <div>
+        <div class="cert-name">Generative AI</div>
+        <div class="cert-issuer">Oracle</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">☕</div>
+      <div>
+        <div class="cert-name">Programming in Java</div>
+        <div class="cert-issuer">NPTEL</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">🤖</div>
+      <div>
+        <div class="cert-name">Introduction to Machine Learning</div>
+        <div class="cert-issuer">NPTEL</div>
+      </div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-icon">📜</div>
+      <div>
+        <div class="cert-name">Internship Certificate</div>
+        <div class="cert-issuer">AICTE</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+  <p class="section-label">Academic background</p>
+  <h2 class="edu-heading">Education</h2>
+  <div class="edu-timeline">
+    <div class="edu-item">
+      <div class="edu-year">2023–2027</div>
+      <div>
+        <div class="edu-degree">B.E. Computer Science and Engineering</div>
+        <div class="edu-school">Panimalar Engineering College</div>
+        <div class="edu-score">CGPA: 9.23</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2022–2023</div>
+      <div>
+        <div class="edu-degree">HSC – Class XII</div>
+        <div class="edu-school">Dr. VGN Matric. Hr. Sec. School</div>
+        <div class="edu-score">95.03%</div>
+      </div>
+    </div>
+    <div class="edu-item">
+      <div class="edu-year">2020–2021</div>
+      <div>
+        <div class="edu-degree">HSC – Class X</div>
+        <div class="edu-school">Dr. VGN Matric. Hr. Sec. School</div>
+        <div class="edu-score">98.5%</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2 class="contact-heading">Let's work<br><em style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--accent)">together.</em></h2>
+  <p class="contact-sub">Open to internships, projects, and entry-level opportunities.</p>
+  <div class="contact-links">
+    <a href="mailto:pavithrakarthigayan23@gmail.com" class="btn btn-primary">✉ pavithrakarthigayan23@gmail.com</a>
+    <a href="https://www.linkedin.com/in/pavithra-karthigayan" target="_blank" class="btn btn-ghost">LinkedIn ↗</a>
+    <a href="https://github.com/Pavithra-Karthigayan" target="_blank" class="btn btn-ghost">GitHub ↗</a>
+  </div>
+</section>
+
+<footer>
+  <span>Pavithra Karthigayan — CSE Student, Panimalar Engineering College</span>
+  <span>Tamil Nadu, India</span>
+</footer>
+
+</body>
+</html>
