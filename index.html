@@ -32,9 +32,9 @@
 
   /* ── NAV ── */
   nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    background: rgba(245,247,250,0.94);
-    backdrop-filter: blur(10px);
+    position: fixed; top: 0; left: 0; right: 0; z-index: 200;
+    background: rgba(245,247,250,0.96);
+    backdrop-filter: blur(12px);
     border-bottom: 1px solid var(--line);
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 6vw; height: 62px;
@@ -47,7 +47,7 @@
   .nav-logo span { color: var(--accent); }
   .nav-links { display: flex; gap: 1.6rem; list-style: none; align-items: center; }
   .nav-links a {
-    font-size: 0.8rem; font-weight: 500; letter-spacing: 0.07em;
+    font-size: 0.78rem; font-weight: 500; letter-spacing: 0.07em;
     text-transform: uppercase; color: var(--muted);
     text-decoration: none; transition: color 0.2s;
   }
@@ -56,9 +56,8 @@
     display: inline-flex; align-items: center; gap: 0.4rem;
     padding: 0.4rem 1rem; border-radius: 6px;
     background: var(--accent); color: white !important;
-    font-size: 0.78rem !important; font-weight: 600 !important;
-    text-transform: uppercase; letter-spacing: 0.06em;
-    transition: all 0.2s; text-decoration: none;
+    font-size: 0.76rem !important; font-weight: 600 !important;
+    letter-spacing: 0.05em; transition: all 0.2s; text-decoration: none;
   }
   .nav-resume-btn:hover { background: var(--accent-dark) !important; transform: translateY(-1px); }
 
@@ -78,20 +77,16 @@
   #hero {
     min-height: 100vh;
     display: flex; flex-direction: column; justify-content: center;
-    padding-top: 120px;
-    border-bottom: 1px solid var(--line);
+    padding-top: 120px; border-bottom: 1px solid var(--line);
     position: relative; overflow: hidden;
   }
   #hero::before {
-    content: '';
-    position: absolute; top: -120px; right: -80px;
+    content: ''; position: absolute; top: -120px; right: -80px;
     width: 520px; height: 520px;
     background: radial-gradient(circle, rgba(26,86,219,0.07) 0%, transparent 70%);
     pointer-events: none;
   }
-  .hero-grid {
-    display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center;
-  }
+  .hero-grid { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 4rem; align-items: center; }
   .hero-role-badge {
     display: inline-flex; align-items: center; gap: 0.4rem;
     background: var(--accent-light); color: var(--accent);
@@ -114,12 +109,12 @@
   .btn {
     display: inline-flex; align-items: center; gap: 0.45rem;
     padding: 0.6rem 1.35rem; border-radius: 6px;
-    font-size: 0.83rem; font-weight: 500; letter-spacing: 0.02em;
+    font-size: 0.83rem; font-weight: 500;
     text-decoration: none; transition: all 0.2s;
     cursor: pointer; border: none; font-family: 'DM Sans', sans-serif;
   }
   .btn-primary { background: var(--accent); color: #fff; box-shadow: 0 2px 8px rgba(26,86,219,0.25); }
-  .btn-primary:hover { background: var(--accent-dark); box-shadow: 0 4px 16px rgba(26,86,219,0.35); transform: translateY(-1px); }
+  .btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
   .btn-ghost { border: 1px solid var(--line); color: var(--ink); background: var(--card); }
   .btn-ghost:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-1px); }
 
@@ -142,9 +137,7 @@
     font-family: 'DM Serif Display', serif;
     font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 2.5rem;
   }
-  .skills-grid {
-    display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem;
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 1rem; }
   .skill-chip {
     background: var(--bg); border: 1px solid var(--line);
     border-radius: 12px; padding: 1.8rem 1rem;
@@ -154,8 +147,11 @@
     background: var(--accent-light); border-color: var(--accent-mid);
     transform: translateY(-4px); box-shadow: 0 8px 24px rgba(26,86,219,0.12);
   }
-  .skill-logo { width: 52px; height: 52px; margin: 0 auto 0.85rem; display: flex; align-items: center; justify-content: center; }
-  .skill-logo img { width: 52px; height: 52px; object-fit: contain; }
+  .skill-logo {
+    width: 56px; height: 56px; margin: 0 auto 0.85rem;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .skill-logo svg { width: 56px; height: 56px; }
   .skill-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
 
   /* ── PROJECTS ── */
@@ -179,7 +175,7 @@
   .project-card:hover::before { opacity: 1; }
   .project-card-hint {
     position: absolute; top: 1rem; right: 1rem;
-    font-size: 0.68rem; color: var(--accent); font-weight: 500;
+    font-size: 0.67rem; color: var(--accent); font-weight: 600;
     background: var(--accent-light); padding: 0.2rem 0.55rem;
     border-radius: 100px; border: 1px solid var(--accent-mid);
     opacity: 0; transition: opacity 0.2s;
@@ -187,7 +183,7 @@
   .project-card:hover .project-card-hint { opacity: 1; }
   .project-number {
     font-family: 'DM Serif Display', serif; font-size: 2.2rem;
-    color: var(--accent-light); margin-bottom: 0.5rem; line-height: 1; font-weight: 700;
+    color: var(--accent-light); margin-bottom: 0.5rem; line-height: 1;
   }
   .project-title { font-weight: 600; font-size: 0.97rem; margin-bottom: 0.7rem; color: var(--ink); }
   .project-desc { font-size: 0.86rem; color: var(--muted); line-height: 1.7; }
@@ -225,8 +221,7 @@
     padding: 0.5rem 1.1rem; border-radius: 6px;
     background: var(--accent); color: white;
     font-size: 0.8rem; font-weight: 500; cursor: pointer;
-    border: none; font-family: 'DM Sans', sans-serif;
-    transition: all 0.2s;
+    border: none; font-family: 'DM Sans', sans-serif; transition: all 0.2s;
   }
   .view-cert-btn:hover { background: var(--accent-dark); transform: translateY(-1px); }
 
@@ -234,30 +229,30 @@
   #certificates { border-bottom: 1px solid var(--line); }
   .certs-heading {
     font-family: 'DM Serif Display', serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 2.5rem;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 0.5rem;
   }
-  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 1rem; }
+  .certs-hint { font-size: 0.82rem; color: var(--muted); margin-bottom: 1.8rem; }
+  .certs-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
   .cert-card {
     background: var(--card); border: 1px solid var(--line);
-    border-radius: 10px; padding: 1.4rem 1.5rem;
+    border-radius: 10px; padding: 1.3rem 1.4rem;
     display: flex; gap: 1rem; align-items: center; transition: all 0.2s;
     cursor: pointer; position: relative;
   }
-  .cert-card[data-pdf]:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-2px); }
-  .cert-card-no-pdf { cursor: default; opacity: 0.8; }
-  .cert-card-no-pdf:hover { transform: none; box-shadow: none; border-color: var(--line); }
+  .cert-card:hover { border-color: var(--accent); box-shadow: var(--shadow); transform: translateY(-2px); }
   .cert-badge {
-    width: 44px; height: 44px; min-width: 44px;
+    width: 46px; height: 46px; min-width: 46px;
     background: var(--accent-light); border-radius: 8px;
-    display: flex; align-items: center; justify-content: center; font-size: 1.25rem;
+    display: flex; align-items: center; justify-content: center; font-size: 1.3rem;
   }
-  .cert-name { font-size: 0.88rem; font-weight: 600; margin-bottom: 0.15rem; color: var(--ink); }
-  .cert-issuer { font-size: 0.75rem; color: var(--accent); font-weight: 500; }
-  .cert-click-hint {
-    position: absolute; bottom: 0.6rem; right: 0.8rem;
-    font-size: 0.65rem; color: var(--accent-mid); font-weight: 500;
+  .cert-info { flex: 1; }
+  .cert-name { font-size: 0.87rem; font-weight: 600; margin-bottom: 0.15rem; color: var(--ink); }
+  .cert-issuer { font-size: 0.74rem; color: var(--accent); font-weight: 500; }
+  .cert-arrow {
+    font-size: 0.8rem; color: var(--accent-mid);
+    transition: transform 0.2s;
   }
-  .cert-card[data-pdf] .cert-click-hint { display: block; }
+  .cert-card:hover .cert-arrow { transform: translateX(3px); color: var(--accent); }
 
   /* ── EDUCATION ── */
   #education { border-bottom: 1px solid var(--line); background: var(--card); }
@@ -301,99 +296,78 @@
     font-size: 0.76rem; color: var(--muted); background: var(--card);
   }
 
-  /* ── MODAL OVERLAY ── */
+  /* ── PROJECT MODAL ── */
   .modal-overlay {
-    display: none;
-    position: fixed; inset: 0; z-index: 1000;
-    background: rgba(13,27,42,0.7);
-    backdrop-filter: blur(6px);
-    align-items: center; justify-content: center;
-    padding: 2rem;
+    display: none; position: fixed; inset: 0; z-index: 1000;
+    background: rgba(13,27,42,0.72); backdrop-filter: blur(6px);
+    align-items: center; justify-content: center; padding: 2rem;
   }
   .modal-overlay.active { display: flex; }
 
-  /* ── PROJECT MODAL ── */
   .project-modal {
-    background: var(--card);
-    border-radius: 16px;
-    padding: 2.5rem;
+    background: var(--card); border-radius: 16px; padding: 2.5rem;
     max-width: 580px; width: 100%;
     box-shadow: 0 24px 80px rgba(13,27,42,0.25);
-    animation: modalIn 0.25s ease;
-    position: relative;
+    animation: modalIn 0.25s ease; position: relative;
   }
   .modal-close {
     position: absolute; top: 1.2rem; right: 1.2rem;
     width: 32px; height: 32px; border-radius: 50%;
     background: var(--bg); border: 1px solid var(--line);
     display: flex; align-items: center; justify-content: center;
-    cursor: pointer; font-size: 1rem; color: var(--muted);
-    transition: all 0.2s;
+    cursor: pointer; font-size: 1rem; color: var(--muted); transition: all 0.2s;
   }
   .modal-close:hover { background: var(--accent-light); color: var(--accent); }
-  .modal-project-number {
-    font-family: 'DM Serif Display', serif; font-size: 1rem;
-    color: var(--accent-mid); margin-bottom: 0.4rem;
-  }
-  .modal-project-title {
-    font-family: 'DM Serif Display', serif; font-size: 1.6rem;
-    color: var(--ink); margin-bottom: 1.2rem; line-height: 1.2;
-  }
+  .modal-project-number { font-family: 'DM Serif Display', serif; font-size: 1rem; color: var(--accent-mid); margin-bottom: 0.4rem; }
+  .modal-project-title { font-family: 'DM Serif Display', serif; font-size: 1.55rem; color: var(--ink); margin-bottom: 1.2rem; line-height: 1.25; }
   .modal-divider { height: 1px; background: var(--line); margin-bottom: 1.2rem; }
-  .modal-desc-item {
-    display: flex; gap: 0.8rem; align-items: flex-start;
-    margin-bottom: 0.9rem;
-  }
-  .modal-bullet {
-    width: 7px; height: 7px; min-width: 7px;
-    background: var(--accent); border-radius: 50%; margin-top: 0.42rem;
-  }
+  .modal-desc-item { display: flex; gap: 0.8rem; align-items: flex-start; margin-bottom: 0.9rem; }
+  .modal-bullet { width: 7px; height: 7px; min-width: 7px; background: var(--accent); border-radius: 50%; margin-top: 0.45rem; }
   .modal-desc-text { font-size: 0.92rem; color: var(--muted); line-height: 1.75; }
   .modal-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1.4rem; }
 
   /* ── PDF MODAL ── */
   .pdf-modal {
-    background: var(--card);
-    border-radius: 16px;
-    width: 100%; max-width: 860px;
-    height: 85vh;
+    background: var(--card); border-radius: 16px;
+    width: 100%; max-width: 880px; height: 87vh;
     box-shadow: 0 24px 80px rgba(13,27,42,0.25);
-    animation: modalIn 0.25s ease;
-    position: relative;
+    animation: modalIn 0.25s ease; position: relative;
     display: flex; flex-direction: column; overflow: hidden;
   }
   .pdf-modal-header {
     display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 1.5rem;
-    border-bottom: 1px solid var(--line);
-    background: var(--bg);
+    padding: 1.1rem 1.5rem; border-bottom: 1px solid var(--line); background: var(--bg);
   }
-  .pdf-modal-title { font-weight: 600; font-size: 0.95rem; color: var(--ink); }
+  .pdf-modal-title { font-weight: 600; font-size: 0.93rem; color: var(--ink); }
   .pdf-modal-actions { display: flex; gap: 0.6rem; align-items: center; }
   .pdf-download-btn {
     display: inline-flex; align-items: center; gap: 0.35rem;
     padding: 0.4rem 0.9rem; border-radius: 6px;
     background: var(--accent); color: white;
-    font-size: 0.78rem; font-weight: 500; text-decoration: none;
-    transition: background 0.2s;
+    font-size: 0.78rem; font-weight: 500; text-decoration: none; transition: background 0.2s;
   }
   .pdf-download-btn:hover { background: var(--accent-dark); }
-  .pdf-modal iframe {
-    flex: 1; width: 100%; border: none;
-  }
+  .pdf-modal iframe { flex: 1; width: 100%; border: none; }
   .pdf-placeholder {
     flex: 1; display: flex; flex-direction: column;
     align-items: center; justify-content: center;
-    gap: 1rem; color: var(--muted);
-    font-size: 0.9rem; text-align: center; padding: 2rem;
+    gap: 0.7rem; color: var(--muted); font-size: 0.9rem; text-align: center; padding: 2rem;
   }
-  .pdf-placeholder .pdf-icon { font-size: 3rem; margin-bottom: 0.5rem; }
-  .pdf-placeholder a {
-    color: var(--accent); font-weight: 600; text-decoration: underline;
+  .pdf-placeholder .big-icon { font-size: 3.5rem; margin-bottom: 0.5rem; }
+  .pdf-placeholder strong { color: var(--ink); font-size: 1rem; }
+  .pdf-placeholder code { background: var(--bg); padding: 0.15rem 0.5rem; border-radius: 4px; font-size: 0.82rem; color: var(--accent); }
+  .pdf-placeholder a { color: var(--accent); font-weight: 600; }
+
+  .pdf-close-static {
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--bg); border: 1px solid var(--line);
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; font-size: 1rem; color: var(--muted); transition: all 0.2s;
   }
+  .pdf-close-static:hover { background: var(--accent-light); color: var(--accent); }
 
   @keyframes modalIn {
-    from { opacity: 0; transform: scale(0.95) translateY(10px); }
+    from { opacity: 0; transform: scale(0.95) translateY(12px); }
     to   { opacity: 1; transform: scale(1) translateY(0); }
   }
 
@@ -412,17 +386,15 @@
     .hero-grid { grid-template-columns: 1fr; }
     .hero-stats { grid-template-columns: repeat(2, 1fr); margin-top: 2rem; }
     nav { padding: 0 4vw; }
-    .nav-links { gap: 0.9rem; }
+    .nav-links { gap: 0.8rem; }
     section { padding: 80px 5vw; }
-    .pdf-modal { height: 90vh; }
+    .pdf-modal { height: 92vh; }
   }
 </style>
 </head>
 <body>
 
-<!-- ══════════════════════════════════════════
-     PROJECT MODAL
-══════════════════════════════════════════ -->
+<!-- ═══════════ PROJECT MODAL ═══════════ -->
 <div class="modal-overlay" id="projectModal" onclick="closeProjectModal(event)">
   <div class="project-modal">
     <button class="modal-close" onclick="closeProjectModalBtn()">✕</button>
@@ -434,29 +406,21 @@
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     PDF MODAL
-══════════════════════════════════════════ -->
+<!-- ═══════════ PDF MODAL ═══════════ -->
 <div class="modal-overlay" id="pdfModal" onclick="closePdfModal(event)">
   <div class="pdf-modal">
     <div class="pdf-modal-header">
       <span class="pdf-modal-title" id="pdfModalTitle">Certificate</span>
       <div class="pdf-modal-actions">
-        <a href="#" id="pdfDownloadBtn" download class="pdf-download-btn">
-          ⬇ Download
-        </a>
-        <button class="modal-close" style="position:static;margin:0" onclick="closePdfModalBtn()">✕</button>
+        <a href="#" id="pdfDownloadBtn" download class="pdf-download-btn">⬇ Download</a>
+        <button class="pdf-close-static" onclick="closePdfModalBtn()">✕</button>
       </div>
     </div>
-    <div id="pdfContent" style="flex:1;display:flex;flex-direction:column;">
-      <!-- iframe or placeholder injected here -->
-    </div>
+    <div id="pdfContent" style="flex:1;display:flex;flex-direction:column;"></div>
   </div>
 </div>
 
-<!-- ══════════════════════════════════════════
-     NAV
-══════════════════════════════════════════ -->
+<!-- ═══════════ NAV ═══════════ -->
 <nav>
   <a href="#hero" class="nav-logo">Pavithra<span>.</span></a>
   <ul class="nav-links">
@@ -469,9 +433,7 @@
   </ul>
 </nav>
 
-<!-- ══════════════════════════════════════════
-     HERO
-══════════════════════════════════════════ -->
+<!-- ═══════════ HERO ═══════════ -->
 <section id="hero">
   <div class="hero-grid">
     <div>
@@ -497,7 +459,7 @@
           <div class="stat-label">Projects Built</div>
         </div>
         <div class="stat">
-          <div class="stat-number">5+</div>
+          <div class="stat-number">6</div>
           <div class="stat-label">Certifications</div>
         </div>
         <div class="stat">
@@ -509,47 +471,94 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     SKILLS
-══════════════════════════════════════════ -->
+<!-- ═══════════ SKILLS ═══════════ -->
 <section id="skills">
   <p class="section-label">What I work with</p>
   <h2 class="skills-heading">Technical Skills</h2>
   <div class="skills-grid">
-    <div class="skill-chip">
-      <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java"></div>
-      <div class="skill-name">Java</div>
-    </div>
-    <div class="skill-chip">
-      <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python"></div>
-      <div class="skill-name">Python</div>
-    </div>
-    <div class="skill-chip">
-      <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/c/c-original.svg" alt="C"></div>
-      <div class="skill-name">C</div>
-    </div>
-    <div class="skill-chip">
-      <div class="skill-logo"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="SQL"></div>
-      <div class="skill-name">SQL</div>
-    </div>
+
+    <!-- JAVA -->
     <div class="skill-chip">
       <div class="skill-logo">
-        <svg viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg" width="52" height="52">
-          <rect x="1" y="10" width="20" height="13" rx="3" fill="#1a56db"/>
-          <rect x="31" y="10" width="20" height="13" rx="3" fill="#1a56db"/>
-          <rect x="16" y="30" width="20" height="13" rx="3" fill="#1040b0"/>
-          <line x1="11" y1="23" x2="26" y2="30" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round"/>
-          <line x1="41" y1="23" x2="26" y2="30" stroke="#93c5fd" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- Official Java Duke logo colours: #E76F00 + #5382A1 -->
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="56" rx="12" fill="#fff"/>
+          <path d="M21.2 38.6s-1.7 1 1.2 1.3c3.5.4 5.3.3 9.2-.4 0 0 1 .7 2.5 1.2-8.9 3.8-20.1-.2-12.9-2.1z" fill="#E76F00"/>
+          <path d="M19.8 33s-2 1.5 1.1 1.8c3.9.4 7 .4 12.3-.6 0 0 .7.7 1.9 1.1-10.9 3.2-23-.3-15.3-2.3z" fill="#E76F00"/>
+          <path d="M29.5 22.7c2.2 2.5-.6 4.8-.6 4.8s5.6-2.9 3-6.5c-2.4-3.4-4.2-5 5.7-10.8 0 0-15.6 3.9-8.1 12.5z" fill="#E76F00"/>
+          <path d="M40.1 41.8s1.3 1-1.4 1.8c-5 1.5-20.7 1.9-25.1.1-1.6-.7.8-1.6 1.9-1.8.5-.1.8-.1.8-.1-2.4-1.7-15.5 3.3-6.7 4.7 24.1 3.9 43.9-1.8 30.5-4.7z" fill="#E76F00"/>
+          <path d="M22.3 27.8s-11 2.6-3.9 3.5c3 .4 9 .3 14.6-.2 4.6-.4 9.2-1.2 9.2-1.2s-1.6.7-2.8 1.5c-11.2 2.9-32.9 1.6-26.7-1.5 5.3-2.6 9.6-2.1 9.6-2.1z" fill="#5382A1"/>
+          <path d="M35.5 34.4c11.4-5.9 6.1-11.6 2.4-10.9-.9.2-1.3.4-1.3.4s.3-.5 1-.7c7.4-2.6 13.1 7.7-2.3 11.8 0 0 .1-.1.2-.6z" fill="#5382A1"/>
+          <path d="M32.5 10s3.8 3.8-3.6 9.7c-5.9 4.7-1.3 7.3 0 10.4-3.5-3.1-6-5.9-4.3-8.5 2.5-3.7 9.5-5.6 7.9-11.6z" fill="#5382A1"/>
+          <path d="M23.2 45.8c10.9.7 27.7-.4 28.1-5.5 0 0-.8 2-9 3.6-9.4 1.7-21 1.5-27.9.4 0 0 1.4 1.2 8.8 1.5z" fill="#5382A1"/>
+        </svg>
+      </div>
+      <div class="skill-name">Java</div>
+    </div>
+
+    <!-- PYTHON -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="56" rx="12" fill="#fff"/>
+          <path d="M27.8 8C18.4 8 19 12.2 19 12.2v4.3h9v1.3H15.5S8 17 8 26.5s6.7 9.2 6.7 9.2H19v-4.4s-.2-6.7 6.6-6.7h11.3s6.4.1 6.4-6.2v-10.4S44.6 8 27.8 8zm-6.3 3.7c1.1 0 2 .9 2 2s-.9 2-2 2-2-.9-2-2 .9-2 2-2z" fill="#366994"/>
+          <path d="M28.2 48C37.6 48 37 43.8 37 43.8v-4.3h-9v-1.3h12.5S48 39 48 29.5s-6.7-9.2-6.7-9.2H37v4.4s.2 6.7-6.6 6.7H19.1s-6.4-.1-6.4 6.2v10.4S11.4 48 28.2 48zm6.3-3.7c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" fill="#FFC331"/>
+        </svg>
+      </div>
+      <div class="skill-name">Python</div>
+    </div>
+
+    <!-- C -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="56" rx="12" fill="#fff"/>
+          <circle cx="28" cy="28" r="18" fill="#5C8DBE"/>
+          <path d="M38.5 33.8c-1.8 3.7-5.6 6.2-10 6.2-6.1 0-11-4.9-11-11s4.9-11 11-11c4.4 0 8.2 2.6 10.1 6.4l-4.9 2.8c-.9-1.9-2.9-3.2-5.2-3.2-3.2 0-5.8 2.6-5.8 5.8 0 3.2 2.6 5.8 5.8 5.8 2.3 0 4.4-1.4 5.3-3.4l4.7 2.6z" fill="white"/>
+        </svg>
+      </div>
+      <div class="skill-name">C</div>
+    </div>
+
+    <!-- SQL / MySQL -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="56" rx="12" fill="#fff"/>
+          <!-- MySQL dolphin-inspired simplified icon -->
+          <path d="M28 10c-9.9 0-18 8.1-18 18s8.1 18 18 18 18-8.1 18-18-8.1-18-18-18z" fill="#00758F"/>
+          <path d="M28 14c-7.7 0-14 6.3-14 14s6.3 14 14 14 14-6.3 14-14-6.3-14-14-14z" fill="#F29111"/>
+          <text x="28" y="33" font-family="Georgia,serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">SQL</text>
+        </svg>
+      </div>
+      <div class="skill-name">SQL</div>
+    </div>
+
+    <!-- OOP -->
+    <div class="skill-chip">
+      <div class="skill-logo">
+        <svg viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="56" height="56" rx="12" fill="#fff"/>
+          <!-- Parent class box -->
+          <rect x="18" y="8" width="20" height="12" rx="3" fill="#1a56db"/>
+          <text x="28" y="18" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">Class</text>
+          <!-- Connector lines -->
+          <line x1="22" y1="36" x2="28" y2="20" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round"/>
+          <line x1="34" y1="36" x2="28" y2="20" stroke="#93c5fd" stroke-width="1.8" stroke-linecap="round"/>
+          <!-- Child boxes -->
+          <rect x="8" y="36" width="16" height="11" rx="3" fill="#1040b0"/>
+          <text x="16" y="44.5" font-family="Arial" font-size="5.5" font-weight="bold" fill="white" text-anchor="middle">Object</text>
+          <rect x="32" y="36" width="16" height="11" rx="3" fill="#1040b0"/>
+          <text x="40" y="44.5" font-family="Arial" font-size="5.5" font-weight="bold" fill="white" text-anchor="middle">Object</text>
         </svg>
       </div>
       <div class="skill-name">OOP</div>
     </div>
+
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     PROJECTS  (click to open modal)
-══════════════════════════════════════════ -->
+<!-- ═══════════ PROJECTS ═══════════ -->
 <section id="projects">
   <p class="section-label">Things I've built</p>
   <h2 class="projects-heading">Projects</h2>
@@ -598,9 +607,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     INTERNSHIP
-══════════════════════════════════════════ -->
+<!-- ═══════════ INTERNSHIP ═══════════ -->
 <section id="internship">
   <p class="section-label">Work experience</p>
   <h2 class="internship-heading">Internship</h2>
@@ -611,78 +618,79 @@
       <div class="internship-org">AICTE – EDUNET</div>
       <div class="internship-duration">⏱ Duration: 1 Month</div>
       <div class="internship-desc">Gained hands-on exposure to cybersecurity fundamentals and threat analysis. Worked on understanding attack vectors, defense mechanisms, and real-world security scenarios in a structured learning environment.</div>
-      <button class="view-cert-btn" onclick="openPdf('aicte_internship.pdf', 'AICTE Internship Certificate')">
+      <button class="view-cert-btn" onclick="openPdf('aicte_internship.pdf','AICTE — Internship Certificate')">
         📄 View Internship Certificate
       </button>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     CERTIFICATES  (click to view PDF)
-══════════════════════════════════════════ -->
+<!-- ═══════════ CERTIFICATES ═══════════ -->
 <section id="certificates">
   <p class="section-label">Credentials</p>
   <h2 class="certs-heading">Certificates</h2>
-
-  <!-- Info note -->
-  <p style="font-size:0.82rem;color:var(--muted);margin-bottom:1.5rem;">
-    🖱 Click on a certificate card to view the PDF.
-  </p>
-
+  <p class="certs-hint">🖱 Click any card to view the certificate PDF.</p>
   <div class="certs-grid">
 
-    <div class="cert-card" data-pdf="nasscom_cybersecurity.pdf" onclick="openPdf('nasscom_cybersecurity.pdf','NASSCOM — Cybersecurity Design & Analysis')">
+    <div class="cert-card" onclick="openPdf('nasscom_cybersecurity.pdf','NASSCOM — Cybersecurity Design &amp; Analysis')">
       <div class="cert-badge">🏛️</div>
-      <div>
+      <div class="cert-info">
         <div class="cert-name">Cybersecurity Design &amp; Analysis</div>
         <div class="cert-issuer">NASSCOM</div>
       </div>
-      <span class="cert-click-hint">View PDF ↗</span>
+      <span class="cert-arrow">→</span>
     </div>
 
-    <div class="cert-card" data-pdf="oracle_genai.pdf" onclick="openPdf('oracle_genai.pdf','Oracle — Generative AI')">
+    <div class="cert-card" onclick="openPdf('oracle_genai.pdf','Oracle — Generative AI')">
       <div class="cert-badge">🔮</div>
-      <div>
+      <div class="cert-info">
         <div class="cert-name">Generative AI</div>
         <div class="cert-issuer">Oracle</div>
       </div>
-      <span class="cert-click-hint">View PDF ↗</span>
+      <span class="cert-arrow">→</span>
     </div>
 
-    <div class="cert-card" data-pdf="nptel_java.pdf" onclick="openPdf('nptel_java.pdf','NPTEL — Programming in Java')">
+    <div class="cert-card" onclick="openPdf('nptel_java.pdf','NPTEL — Programming in Java')">
       <div class="cert-badge">☕</div>
-      <div>
+      <div class="cert-info">
         <div class="cert-name">Programming in Java</div>
         <div class="cert-issuer">NPTEL</div>
       </div>
-      <span class="cert-click-hint">View PDF ↗</span>
+      <span class="cert-arrow">→</span>
     </div>
 
-    <div class="cert-card" data-pdf="nptel_ml.pdf" onclick="openPdf('nptel_ml.pdf','NPTEL — Introduction to Machine Learning')">
+    <div class="cert-card" onclick="openPdf('nptel_ml.pdf','NPTEL — Introduction to Machine Learning')">
       <div class="cert-badge">🤖</div>
-      <div>
+      <div class="cert-info">
         <div class="cert-name">Introduction to Machine Learning</div>
         <div class="cert-issuer">NPTEL</div>
       </div>
-      <span class="cert-click-hint">View PDF ↗</span>
+      <span class="cert-arrow">→</span>
     </div>
 
-    <div class="cert-card" data-pdf="aicte_internship.pdf" onclick="openPdf('aicte_internship.pdf','AICTE — Internship Certificate')">
+    <div class="cert-card" onclick="openPdf('aicte_internship.pdf','AICTE — Internship Certificate')">
       <div class="cert-badge">📜</div>
-      <div>
+      <div class="cert-info">
         <div class="cert-name">Internship Certificate</div>
         <div class="cert-issuer">AICTE</div>
       </div>
-      <span class="cert-click-hint">View PDF ↗</span>
+      <span class="cert-arrow">→</span>
+    </div>
+
+    <!-- ✅ NEW: Infosys Springboard -->
+    <div class="cert-card" onclick="openPdf('infosys_springboard.pdf','Infosys Springboard Certificate')">
+      <div class="cert-badge">🌱</div>
+      <div class="cert-info">
+        <div class="cert-name">Infosys Springboard</div>
+        <div class="cert-issuer">Infosys</div>
+      </div>
+      <span class="cert-arrow">→</span>
     </div>
 
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     EDUCATION
-══════════════════════════════════════════ -->
+<!-- ═══════════ EDUCATION ═══════════ -->
 <section id="education">
   <p class="section-label">Academic background</p>
   <h2 class="edu-heading">Education</h2>
@@ -714,9 +722,7 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════════════════
-     CONTACT
-══════════════════════════════════════════ -->
+<!-- ═══════════ CONTACT ═══════════ -->
 <section id="contact">
   <p class="section-label" style="justify-content:center">Get in touch</p>
   <h2 class="contact-heading">Let's work<br><em style="font-family:'DM Serif Display',serif;font-style:italic;color:var(--accent)">together.</em></h2>
@@ -733,9 +739,8 @@
 
     <a href="https://www.linkedin.com/in/pavithra-karthigayan" target="_blank" class="contact-btn">
       <svg viewBox="0 0 24 24" fill="currentColor">
-        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/>
-        <rect x="2" y="9" width="4" height="12"/>
-        <circle cx="4" cy="4" r="2"/>
+        <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+        <rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>
       </svg>
       LinkedIn
     </a>
@@ -759,9 +764,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
         <polyline points="14 2 14 8 20 8"/>
-        <line x1="16" y1="13" x2="8" y2="13"/>
-        <line x1="16" y1="17" x2="8" y2="17"/>
-        <polyline points="10 9 9 9 8 9"/>
+        <line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
       </svg>
       Resume
     </a>
@@ -774,15 +777,13 @@
   <span>Tamil Nadu, India</span>
 </footer>
 
-<!-- ══════════════════════════════════════════
-     JAVASCRIPT
-══════════════════════════════════════════ -->
+<!-- ═══════════ JAVASCRIPT ═══════════ -->
 <script>
-/* ─── PROJECT DATA ─── */
+/* ── PROJECT DATA ── */
 const projects = [
   {
     num: '01',
-    title: 'DOCWISE AI — Smart Medical History Analyzer & Doctor Recommendation System',
+    title: 'DOCWISE AI – Smart Medical History Analyzer & Doctor Recommendation System',
     descriptions: [
       'Designed an AI-powered system to analyze past medical reports, summarize patient history, and assist in disease prediction.',
       'Integrated machine learning models and NLP techniques to support accurate medical insights and intelligent doctor recommendations.'
@@ -818,71 +819,52 @@ const projects = [
   }
 ];
 
-/* ─── PROJECT MODAL ─── */
-function openProject(index) {
-  const p = projects[index];
+/* ── PROJECT MODAL ── */
+function openProject(i) {
+  const p = projects[i];
   document.getElementById('modalNum').textContent = 'Project ' + p.num;
   document.getElementById('modalTitle').textContent = p.title;
-
-  const descContainer = document.getElementById('modalDescriptions');
-  descContainer.innerHTML = p.descriptions.map(d => `
-    <div class="modal-desc-item">
-      <div class="modal-bullet"></div>
-      <p class="modal-desc-text">${d}</p>
-    </div>
-  `).join('');
-
-  document.getElementById('modalTags').innerHTML =
-    p.tags.map(t => `<span class="project-tag">${t}</span>`).join('');
-
+  document.getElementById('modalDescriptions').innerHTML = p.descriptions.map(d =>
+    `<div class="modal-desc-item"><div class="modal-bullet"></div><p class="modal-desc-text">${d}</p></div>`
+  ).join('');
+  document.getElementById('modalTags').innerHTML = p.tags.map(t =>
+    `<span class="project-tag">${t}</span>`
+  ).join('');
   document.getElementById('projectModal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
-
 function closeProjectModal(e) {
-  if (e.target === document.getElementById('projectModal')) closeProjectModalBtn();
+  if (e.target.id === 'projectModal') closeProjectModalBtn();
 }
 function closeProjectModalBtn() {
   document.getElementById('projectModal').classList.remove('active');
   document.body.style.overflow = '';
 }
 
-/* ─── PDF MODAL ─── */
-function openPdf(filename, title) {
+/* ── PDF MODAL ── */
+function openPdf(file, title) {
   document.getElementById('pdfModalTitle').textContent = title;
-  document.getElementById('pdfDownloadBtn').href = filename;
-  document.getElementById('pdfDownloadBtn').download = filename;
+  const dlBtn = document.getElementById('pdfDownloadBtn');
+  dlBtn.href = file; dlBtn.download = file;
 
-  const content = document.getElementById('pdfContent');
-
-  // Try to embed — if file not found, show friendly placeholder
-  content.innerHTML = `
-    <iframe
-      src="${filename}"
-      title="${title}"
-      style="flex:1;width:100%;border:none;"
-      onerror="showPdfPlaceholder('${filename}','${title}')"
-    ></iframe>
-  `;
+  document.getElementById('pdfContent').innerHTML =
+    `<iframe src="${file}#toolbar=1" title="${title}" style="flex:1;width:100%;border:none;"
+       onload="this.style.opacity=1" onerror="pdfFallback('${file}','${title}')"></iframe>`;
 
   document.getElementById('pdfModal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
-
-function showPdfPlaceholder(filename, title) {
+function pdfFallback(file, title) {
   document.getElementById('pdfContent').innerHTML = `
     <div class="pdf-placeholder">
-      <div class="pdf-icon">📄</div>
+      <div class="big-icon">📄</div>
       <strong>${title}</strong>
-      <p>PDF file not found in the same folder as this portfolio.<br>
-         Please place <code>${filename}</code> in the same directory.</p>
-      <a href="${filename}" download>Try downloading it instead</a>
-    </div>
-  `;
+      <p>Place <code>${file}</code> in the same folder as this HTML file.</p>
+      <a href="${file}" download>Download instead</a>
+    </div>`;
 }
-
 function closePdfModal(e) {
-  if (e.target === document.getElementById('pdfModal')) closePdfModalBtn();
+  if (e.target.id === 'pdfModal') closePdfModalBtn();
 }
 function closePdfModalBtn() {
   document.getElementById('pdfModal').classList.remove('active');
@@ -890,14 +872,10 @@ function closePdfModalBtn() {
   document.body.style.overflow = '';
 }
 
-/* ─── ESC KEY ─── */
+/* ── ESC KEY ── */
 document.addEventListener('keydown', e => {
-  if (e.key === 'Escape') {
-    closeProjectModalBtn();
-    closePdfModalBtn();
-  }
+  if (e.key === 'Escape') { closeProjectModalBtn(); closePdfModalBtn(); }
 });
 </script>
-
 </body>
 </html>
