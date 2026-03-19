@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Certifications – Pavithra K</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy: #1a2340;
+      --accent: #4a90d9;
+      --accent2: #e8734a;
+      --light: #f7f9fc;
+      --white: #ffffff;
+      --text: #2d3748;
+      --muted: #718096;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background-color: var(--light);
+      color: var(--text);
+    }
+
+    /* ── NAVBAR ── */
+    nav {
+      background-color: var(--white);
+      border: 2px solid var(--navy);
+      border-radius: 300px;
+      width: 65%;
+      max-width: 1100px;
+      margin: 20px auto;
+      padding: 12px 50px;
+      display: flex;
+      justify-content: center;
+      gap: 28px;
+      position: sticky;
+      top: 10px;
+      z-index: 1000;
+      box-shadow: 0 0 12px rgba(26,35,64,0.25);
+      transition: box-shadow 0.3s ease, transform 0.3s ease;
+    }
+
+    nav:hover {
+      box-shadow: 0 0 22px rgba(26,35,64,0.4);
+      transform: scale(1.02);
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 600;
+      font-size: 0.9em;
+      letter-spacing: 0.4px;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      left: 0; bottom: 0;
+      width: 0%; height: 2px;
+      background-color: var(--accent);
+      transition: width 0.3s ease;
+    }
+
+    nav a:hover::after { width: 100%; }
+    nav a:hover { color: var(--accent); }
+
+    /* ── PAGE TITLE ── */
+    .page-title {
+      text-align: center;
+      margin: 45px 0 10px;
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4em;
+      color: var(--navy);
+    }
+
+    .page-subtitle {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95em;
+      margin-bottom: 40px;
+    }
+
+    /* ── SECTION TITLE ── */
+    .section-title {
+      text-align: center;
+      margin: 50px 0 25px;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.7em;
+      color: var(--navy);
+      position: relative;
+    }
+
+    .section-title::after {
+      content: "";
+      width: 60px;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      display: block;
+      margin: 10px auto 0;
+      border-radius: 2px;
+    }
+
+    /* ── CERT GRID ── */
+    .cert-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      padding: 0 50px 40px;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 1000px) {
+      .cert-container {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 0 30px 40px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .cert-container {
+        grid-template-columns: 1fr;
+        padding: 0 20px 40px;
+      }
+    }
+
+    /* ── CERT CARD ── */
+    .cert-card {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(26,35,64,0.12);
+      overflow: hidden;
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .cert-card img {
+      width: 100%;
+      height: auto;
+      border-radius: 14px;
+      display: block;
+    }
+
+    .cert-card:hover {
+      transform: scale(1.28);
+      box-shadow: 0 16px 40px rgba(26,35,64,0.3);
+      z-index: 10;
+      position: relative;
+    }
+
+    /* ── CERT LABEL CARD (for named certs without images) ── */
+    .cert-label-card {
+      background: var(--white);
+      border-radius: 18px;
+      box-shadow: 0 6px 18px rgba(26,35,64,0.1);
+      padding: 30px 20px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      transition: transform 0.4s ease, box-shadow 0.4s ease, background 0.4s ease;
+      cursor: default;
+    }
+
+    .cert-label-card:hover {
+      transform: translateY(-8px) scale(1.04);
+      background: linear-gradient(135deg, var(--navy), #2a3a6e);
+      box-shadow: 0 16px 35px rgba(26,35,64,0.25);
+    }
+
+    .cert-label-card:hover .cert-name,
+    .cert-label-card:hover .cert-org { color: white; }
+
+    .cert-icon {
+      font-size: 2.2em;
+    }
+
+    .cert-name {
+      font-family: 'Playfair Display', serif;
+      font-size: 1em;
+      font-weight: 700;
+      color: var(--navy);
+      transition: color 0.3s;
+    }
+
+    .cert-org {
+      font-size: 0.82em;
+      color: var(--accent);
+      font-weight: 600;
+      transition: color 0.3s;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background-color: var(--navy);
+      overflow: hidden;
+      white-space: nowrap;
+      padding: 20px 0;
+      margin-top: 40px;
+    }
+
+    .footer-track {
+      display: inline-block;
+      animation: scrollLeft 18s linear infinite;
+    }
+
+    .footer-track:hover { animation-play-state: paused; }
+
+    .footer-track span {
+      display: inline-block;
+      padding-left: 100%;
+      color: rgba(255,255,255,0.85);
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    @keyframes scrollLeft {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+
+    @media (max-width: 700px) {
+      nav { width: 92%; padding: 10px 16px; gap: 14px; font-size: 0.82em; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="#nptel">NPTEL</a>
+    <a href="#udemy">UDEMY</a>
+    <a href="#infosys">INFOSYS</a>
+    <a href="#internship">INTERNSHIP</a>
+    <a href="#others">OTHERS</a>
+  </nav>
+
+  <h1 class="page-title">My Certifications</h1>
+  <p class="page-subtitle">A collection of courses, programs, and achievements that have shaped my journey.</p>
+
+  <!-- NPTEL -->
+  <h2 id="nptel" class="section-title">NPTEL</h2>
+  <div class="cert-container">
+    <div class="cert-card"><img src="images/java.jpg" alt="NPTEL Java Certificate"></div>
+    <div class="cert-card"><img src="images/ml.jpg" alt="NPTEL Machine Learning Certificate"></div>
+  </div>
+
+  <!-- UDEMY -->
+  <h2 id="udemy" class="section-title">UDEMY</h2>
+  <div class="cert-container">
+    <div class="cert-card"><img src="images/udemy.jpg" alt="Udemy Java Certificate"></div>
+  </div>
+
+  <!-- INFOSYS -->
+  <h2 id="infosys" class="section-title">INFOSYS</h2>
+  <div class="cert-container">
+    <div class="cert-card"><img src="images/infosys_java.jpg" alt="Infosys Java Programming Fundamentals"></div>
+  </div>
+
+  <!-- INTERNSHIP -->
+  <h2 id="internship" class="section-title">INTERNSHIP</h2>
+  <div class="cert-container">
+    <div class="cert-card"><img src="images/aicte.jpg" alt="AICTE Internship Certificate"></div>
+  </div>
+
+  <!-- OTHERS -->
+  <h2 id="others" class="section-title">OTHERS</h2>
+  <div class="cert-container">
+    <!-- NASSCOM -->
+    <div class="cert-card"><img src="images/nasscom.jpg" alt="NASSCOM Cybersecurity Certificate"></div>
+    <!-- Oracle -->
+    <div class="cert-card"><img src="images/oracle.jpg" alt="Oracle Generative AI Certificate"></div>
+  </div>
+
+  <footer>
+    <div class="footer-track">
+      <span>© 2026 Pavithra K. All Rights Reserved. &nbsp;|&nbsp; pavithrakarthigayan23@gmail.com</span>
+    </div>
+  </footer>
+
+</body>
+</html>
